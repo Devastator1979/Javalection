@@ -14,17 +14,31 @@ public class TestServlet extends HttpServlet {
         }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException{
-            processRequest(request, response);
+            processRecuest(request, response);
         }
 
-    private void processRecuest(HttpServletRequest request, HttpServletResponse response) {
-        throw ServletException, IOException{
-            response.setContentType("text")
-        }
-    }
-
-    private void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void processRecuest(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException{
+            response.setContentType("text/html; character=UTF-8");
+            PrintWriter out = response.getWriter();
+            try{
+            out.print("<html>");
+            out.print("<head>");
+            out.print("<title>Servlet TestServlet</title>");
+            out.print("</head>");
+            out.print("<body>");
+            out.print("<hi>Servlet TestServlet at"+request.getContextPath()+"</h1>");
+            out.print("</body>");
+            out.print("</html>");
+            }
+            finally{
+                out.close();
+            }
     }
 }
+
+
+
+ 
+
 
